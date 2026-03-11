@@ -40,4 +40,6 @@ Um jogo pode possuir várias conquistas.
 
 ## MER
 
-![MER](mer.pdf)
+## MER
+
+![MER](docs/mer.png)

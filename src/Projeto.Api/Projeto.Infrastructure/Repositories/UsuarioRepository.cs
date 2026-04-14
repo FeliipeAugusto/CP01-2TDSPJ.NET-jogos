@@ -3,6 +3,7 @@ using Projeto.Domain.Entities;
 using Projeto.Application.Interfaces;
 using Projeto.Infrastructure.Data;
 
+namespace Projeto.Infrastructure.Repositories;
 public class UsuarioRepository : IUsuarioRepository
 {
     private readonly AppDbContext _context;

@@ -7,7 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.5"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Projeto.Application\Projeto.Application.csproj" />
+      <ProjectReference Include="..\Projeto.Infrastructure\Projeto.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

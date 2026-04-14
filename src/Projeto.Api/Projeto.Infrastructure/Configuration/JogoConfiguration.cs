@@ -1,4 +1,9 @@
-﻿public class JogoConfiguration : IEntityTypeConfiguration<Jogo>
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Projeto.Domain.Entities;
+
+namespace Projeto.Infrastructure.Configuration;
+public class JogoConfiguration : IEntityTypeConfiguration<Jogo>
 {
     public void Configure(EntityTypeBuilder<Jogo> builder)
     {

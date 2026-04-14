@@ -2,47 +2,24 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Projeto.Domain.Entities;
 
-namespace Projeto.Infrastructure.Configurations;
+namespace Projeto.Infrastructure.Configuration;
 
-public class JogoConfiguration : IEntityTypeConfiguration<Jogo>
+public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
 {
-    public void Configure(EntityTypeBuilder<Jogo> builder)
+    public void Configure(EntityTypeBuilder<Usuario> builder)
     {
-        builder.HasKey(j => j.JogoId);
+        builder.HasKey(u => u.Id);
 
-        builder.Property(j => j.Titulo)
+        builder.Property(u => u.Nome)
+            .IsRequired()
+            .HasMaxLength(100);
+
+        builder.Property(u => u.Email)
             .IsRequired()
             .HasMaxLength(150);
 
-        builder.Property(j => j.Preco)
-            .HasColumnType("decimal(10,2)");
-
-        builder.Property(j => j.DataLancamento)
-            .IsRequired();
-
-        builder.HasOne(j => j.Genero)
-            .WithMany(g => g.Jogos)
-            .HasForeignKey(j => j.GeneroId)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        builder.HasOne(j => j.Desenvolvedora)
-            .WithMany(d => d.Jogos)
-            .HasForeignKey(j => j.DesenvolvedoraId)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        builder.HasOne(j => j.Publisher)
-            .WithMany(p => p.Jogos)
-            .HasForeignKey(j => j.PublisherId)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        builder.HasMany(j => j.Conquistas)
-            .WithOne(c => c.Jogo)
-            .HasForeignKey(c => c.JogoId);
-
-        builder.HasMany(j => j.Bibliotecas)
-            .WithOne(b => b.Jogo)
-            .HasForeignKey(b => b.JogoId);
-
-        builder.HasIndex(j => j.Titulo);
+        builder.Property(u => u.Pais)
+            .IsRequired()
+            .HasMaxLength(50);
     }
 }

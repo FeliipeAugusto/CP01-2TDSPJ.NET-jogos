@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Projeto.Domain.Entities;
 
-namespace Projeto.Infrastructure.Configurations;
+namespace Projeto.Infrastructure.Configuration;
 
 public class PublisherConfiguration : IEntityTypeConfiguration<Publisher>
 {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Projeto.Domain.Entities;
 
-namespace Projeto.Infrastructure.Configurations;
+namespace Projeto.Infrastructure.Configuration;
 
 public class BibliotecaConfiguration : IEntityTypeConfiguration<Biblioteca>
 {
@@ -26,7 +26,7 @@ public class BibliotecaConfiguration : IEntityTypeConfiguration<Biblioteca>
             .HasForeignKey(b => b.JogoId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // Evita duplicar jogo na biblioteca do mesmo usuário
+      
         builder.HasIndex(b => new { b.UsuarioId, b.JogoId })
             .IsUnique();
     }
